@@ -2,14 +2,38 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <>
-        <h1 className = "App-header">Flixter</h1>
-        <div className = "Search-Bar">
-            <input type="text" placeholder="" />
-            <button>Search</button>
+        <div className="app-header">
+            <div className="header-left">
+                <div className="search-container">
+                    <input
+                        type="text"
+                        placeholder="Search for movies..."
+                        className="search-input"
+                    />
+                    <button className="search-button">
+                     Search
+                    </button>
+                    <button className="clear-button">
+                      Clear
+                    </button>
+                </div>
+            </div>
+            <div className="header-center">
+                <h1 className="app-name">Flixter</h1>
+            </div>
+            <div className="header-right">
+            <label for="sortOptions"></label>
+            <select id="sortOptions" name="sort">
+                <option value="" disabled selected>Sort by</option>
+                <option value="popularity-desc">Popularity Descending</option>
+                <option value="release-date-desc">Release Date Descending</option>
+                <option value="rating-desc">Rating Descending</option>
+            </select>
+
+
+            </div>
         </div>
-        </>
-    )
+    );
 }
 
 export default Header;

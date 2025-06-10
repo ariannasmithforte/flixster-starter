@@ -3,6 +3,7 @@ import './App.css'
 import Header from './Header.jsx'
 import MovieCard from './Movie.jsx'
 import data from './data/data.js'
+import LoadMore from './LoadMore.jsx'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         />
       ))}
     </div>
+  <LoadMore />
     </>
 )
 }

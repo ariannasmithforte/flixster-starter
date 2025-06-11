@@ -1,10 +1,14 @@
+//MovieList.jsx
 import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard.jsx';
 
+
 const MovieList = () => {
+    // State variables
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Fetch movies from the API
     const options = {
         method: 'GET',
         headers: {
@@ -31,6 +35,7 @@ const MovieList = () => {
         return <main className="loading">Loading movies...</main>;
     }
 
+    // Renders through the list of movies
     return (
         <main>
             <section className="movies-container">

@@ -1,8 +1,8 @@
-// LoadMore.jsx
+// LoadMore Button.jsx
 import React from 'react';
 
-
-const LoadMore = ({ onLoadMore, loading }) => {
+// Button to load more movies on the page.
+const LoadMoreButton = ({ onLoadMore, loading }) => {
     return (
       <div className="load-more-container">
         <button
@@ -16,4 +16,4 @@ const LoadMore = ({ onLoadMore, loading }) => {
     );
   };
 
-export default LoadMore;
+export default LoadMoreButton;

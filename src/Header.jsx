@@ -1,21 +1,59 @@
 //Header.jsx
-import React from 'react';
+import React, { useState } from 'react';
 
 // Header component that contains the search bar, app name, and sort options
-const Header = () => {
+const Header = ({ onSearch, onClear }) => {
+    // State variable to hold the current search query
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Event handler function to update state when user types in search bar
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    // Event handler for search button click
+    const handleSearchClick = () => {
+        if (searchQuery.trim()) {
+            onSearch(searchQuery.trim());
+        }
+    };
+
+    // Event handler for clear button click
+    const handleClearClick = () => {
+        setSearchQuery('');
+        onClear();
+    };
+
+    // Event handler for Enter key press in search input
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter' && searchQuery.trim()) {
+            onSearch(searchQuery.trim());
+        }
+    };
+
     return (
         <div className="app-header">
             <div className="header-left">
                 <div className="search-container">
                     <input
                         type="text"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        onKeyDown={handleKeyDown}
                         placeholder="Search for movies..."
                         className="search-input"
                     />
-                    <button className="search-button">
+                    <button
+                        className="search-button"
+                        onClick={handleSearchClick}
+                        disabled={!searchQuery.trim()}
+                    >
                      Search
                     </button>
-                    <button className="clear-button">
+                    <button
+                        className="clear-button"
+                        onClick={handleClearClick}
+                    >
                       Clear
                     </button>
                 </div>

@@ -11,7 +11,7 @@ const MovieModal = ({ movie, onClose }) => {
           <button className="modal-close" onClick={onClose}>✕</button>
           <img
             className="modal-backdrop"
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
             alt={movie.title}
           />
           <h2>{movie.title}</h2>

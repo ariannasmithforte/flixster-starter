@@ -266,4 +266,13 @@ body {
   border-radius: 8px;
   margin-bottom: 20px;
 
+} 
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  color: #fff;
+  font-size: 0.9rem;
 }

@@ -6,6 +6,7 @@ import MovieList from './MovieList.jsx'
 import LoadMoreButton from './LoadMoreButton.jsx'
 import ViewToggle from './ToggleView.jsx'
 import MovieModal from './MovieInfoModal.jsx'
+import Footer from './Footer.jsx'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 const options = {
@@ -141,6 +142,7 @@ const App = () => {
         loading={loadingMore}
         hasMoreMovies={hasMoreMovies}
       />
+      <Footer />
     </>
   );
 };

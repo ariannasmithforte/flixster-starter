@@ -1,8 +1,8 @@
 //Header.jsx
 import React, { useState } from 'react';
 
-// Header component that contains the search bar, app name, and sort options
-const Header = ({ onSearch, onClear }) => {
+// Function that contains the search bar, app name, and sort options
+const Header = ({ onSearch, onClear, onSortChange }) => {
     // State variable to hold the current search query
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -31,6 +31,13 @@ const Header = ({ onSearch, onClear }) => {
         }
     };
 
+    // Event handler for sort options change
+    const handleSortChange = (event) => {
+        const sortValue = event.target.value;
+        onSortChange(sortValue);
+    };
+
+    
     return (
         <div className="app-header">
             <div className="header-left">
@@ -59,13 +66,13 @@ const Header = ({ onSearch, onClear }) => {
                 </div>
             </div>
             <div className="header-center">
-                <h1 className="app-name">Flixter</h1>
+                <h1 className="app-name">Flixster</h1>
             </div>
             <div className="header-right">
             <label htmlFor="sortOptions"></label>
-            <select id="sortOptions" name="sort" defaultValue="">
+            <select id="sortOptions" name="sort" onChange={(e)  => onSortChange(e.target.value)} defaultValue="">
                 <option value="" disabled>Sort by</option>
-                <option value="popularity-desc">Popularity Descending</option>
+                <option value="title-desc">Alphabetic A-Z</option>
                 <option value="release-date-desc">Release Date Descending</option>
                 <option value="rating-desc">Rating Descending</option>
             </select>

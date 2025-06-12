@@ -1,7 +1,7 @@
 //ToggleView.jsx
 import React from 'react';
 
-//Toggle function to switch from search results to now playing view
+//Function to switch from search results to now playing view
 const ViewToggle = ({ view, setView, onNowPlayingClick }) => {
   return (
     <div className="toggle-buttons">

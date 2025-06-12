@@ -1,8 +1,9 @@
 import React from 'react';
 import MovieCard from './MovieCard.jsx';
 
+// Function that renders a list of movies
 const MovieList = ({ movies, onMovieClick }) => {
-    // Renders through the list of movies
+
     return (
         <main>
             <section className="movies-container">

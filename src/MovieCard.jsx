@@ -1,6 +1,7 @@
 //MovieCard.jsx
 import React from 'react';
 
+// MovieCard component
 const MovieCard = ({ movie, onClick }) => {
     const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 

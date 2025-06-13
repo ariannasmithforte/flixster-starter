@@ -3,9 +3,9 @@
 
 Submitted by: **Arianna Smith-Forte'**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **10** hours spent in total
 
-Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Flixster Deployed Site](https://flixster-starter-qv9h.onrender.com/)
 
 ### Application Features
 
@@ -60,10 +60,10 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [x] Search bar
     - [x] Movie grid
     - [x] Footer section
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
-  - [ ] **Deployment**
-  - [ ] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
+  - [x] **Deployment**
+  - [x] Website is deployed via Render.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
 
 #### STRETCH FEATURES
 
@@ -109,20 +109,21 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I think the Weather Report Lab was really helpful in understanding API's and creating components that are used to pass information in multiple times. The only part of the project that I felt unprepared to complete were the search, sort, and the embedded youtube trailer.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have done a lot differently. I think I would have worked on the load more button functionality more, aswell as started on the side bar stretch feature.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Some things that went well is that most of my code is working right. Some things that didn't go well is that I found some bugs in my code that I has to change last minute, for example, my API key was acting up and I found out that my authorization key chnaged. Something that I noticed that my peers did was that they focused more on the content rather than the UI, which is something that I'd like to try next time, that way I can finish all the stretch features.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- https://react.dev/reference/react
+- https://www.w3schools.com/react/default.asp
+- https://medium.com/@otooker/embedding-a-youtube-video-in-react-9be0040b050d
 
 ### Shout out
-
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to the staff in my class for their help in the class with the lab assignments and the project, and to my fellow peers for their advice and company during this time.

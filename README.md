@@ -100,10 +100,8 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
   - [ ] The Watched page displays all watched movies in a grid view.
 
 ### Walkthrough Video
+-https://www.loom.com/share/cf4c3ae79fa344d0b2522e36e3f768cf?sid=9696a93a-3b99-478b-b37e-1ccaff6312a4
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
@@ -117,7 +115,7 @@ If I had more time, I would have done a lot differently. I think I would have wo
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Some things that went well is that most of my code is working right. Some things that didn't go well is that I found some bugs in my code that I has to change last minute, for example, my API key was acting up and I found out that my authorization key chnaged. Something that I noticed that my peers did was that they focused more on the content rather than the UI, which is something that I'd like to try next time, that way I can finish all the stretch features.
+Some things that went well is that most of my code is working right. Some things that didn't go well is that I found some bugs in my code that I has to change last minute, for example, my API key was acting up and I found out that my authorization key changed. I also had to fix responsiveness at the end due to learning more about that requirement. Something that I noticed that my peers did was that they focused more on the content rather than the UI, which is something that I'd like to try next time, that way I can finish all the stretch features.
 
 ### Open-source libraries used
 

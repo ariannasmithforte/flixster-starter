@@ -34,14 +34,23 @@ const App = () => {
 
   // Fetch movies from API
   const fetchMovies = (page = 1) => {
-  fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options)
-    .then(res => res.json())
-    .then(data => {
-      setMovies(prev => [...(page === 1 ? [] : prev), ...data.results]);
-      setHasMoreMovies(page < data.total_pages);
-    })
-  
-};
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options)
+      .then(res => res.json())
+      .then(data => {
+        // Update the movie state without adding duplicates
+        setMovies(prev => {
+          if (page === 1) {
+            return data.results;
+          } else {
+            const existingIds = new Set(prev.map(movie => movie.id));
+            const newMovies = data.results.filter(movie => !existingIds.has(movie.id));
+            return [...prev, ...newMovies];
+          }
+        });
+        setHasMoreMovies(page < data.total_pages);
+        setCurrentPage(page);
+      });
+  };
 
   // Function that fetches trailer key
   const fetchTrailerKey = async (movieId) => {
@@ -99,7 +108,13 @@ const App = () => {
     fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${nextPage}`, options)
       .then(res => res.json())
       .then(data => {
-        setMovies(prev => [...prev, ...data.results]);
+        setMovies(prev => {
+         // Add only new movies (avoid duplicates)
+          const existingIds = new Set(prev.map(movie => movie.id));
+          // Filter out movies that already exist
+          const newMovies = data.results.filter(movie => !existingIds.has(movie.id));
+          return [...prev, ...newMovies];
+        });
         setCurrentPage(nextPage);
         setHasMoreMovies(nextPage < data.total_pages);
       })

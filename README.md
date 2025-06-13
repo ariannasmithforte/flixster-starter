@@ -56,7 +56,7 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
     - [x] When a sort option is clicked, movies display in a grid according to selected criterion.
   - [x] Website displays:
     - [x] Header section
-    - [] Banner section
+    - [x] Banner section
     - [x] Search bar
     - [x] Movie grid
     - [x] Footer section

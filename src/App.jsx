@@ -8,7 +8,10 @@ import ViewToggle from './ToggleView.jsx'
 import MovieModal from './MovieInfoModal.jsx'
 import Footer from './Footer.jsx'
 
+// API Key
 const API_KEY = import.meta.env.VITE_API_KEY
+
+// API Request
 const options = {
   method: 'GET',
   headers: {
@@ -17,6 +20,7 @@ const options = {
   }
 };
 
+// App component
 const App = () => {
   // States variables
   const [movies, setMovies] = useState([]);
@@ -30,18 +34,32 @@ const App = () => {
 
   // Fetch movies from API
   const fetchMovies = (page = 1) => {
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options)
-      .then(res => res.json())
-      .then(data => {
-        if (page === 1) {
-          setMovies(data.results);
-        } else {
-          setMovies(prev => [...prev, ...data.results]);
-        }
-        setHasMoreMovies(page < data.total_pages);
-      })
-      .catch(err => console.error(err));
-  };
+  fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options)
+    .then(res => res.json())
+    .then(data => {
+      setMovies(prev => [...(page === 1 ? [] : prev), ...data.results]);
+      setHasMoreMovies(page < data.total_pages);
+    })
+  
+};
+
+  // Function that fetches trailer key
+  const fetchTrailerKey = async (movieId) => {
+  try {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+      options
+    );
+    const data = await res.json();
+    const trailer = data.results.find(
+      (vid) => vid.type === 'Trailer' && vid.site === 'YouTube'
+    );
+    return trailer?.key;
+  } catch (err) {
+    return null;
+  }
+};
+
 
   // Fetch now playing function that resets the search term and page
   const fetchNowPlaying = () => {
@@ -59,7 +77,6 @@ const App = () => {
   const handleSearch = (query) => {
     setSearchTerm(query);
     setView('search');
-    console.log('Searching for:', query);
   };
 
   // Function to clear search
@@ -67,7 +84,6 @@ const App = () => {
     setSearchTerm('');
     setView('nowPlaying');
     fetchNowPlaying();
-    console.log('Search cleared');
   };
 
   // Function to handle sort change
@@ -87,21 +103,29 @@ const App = () => {
         setCurrentPage(nextPage);
         setHasMoreMovies(nextPage < data.total_pages);
       })
-      .catch(err => console.error(err))
       .finally(() => setLoadingMore(false));
   };
 
+  // Function to fetch movie details
   const fetchMovieDetails = (movieId) => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
       .then(res => res.json())
       .then(data => setSelectedMovie(data))
-      .catch(err => console.error(err));
   };
 
-  const handleMovieClick = (movieId) => {
-    console.log("Movie clicked:", movieId);
-    fetchMovieDetails(movieId);
-  };
+// Function to handle movie click
+  const handleMovieClick = async (movieId) => {
+  try {
+    const [detailsRes, trailerKey] = await Promise.all([
+      fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options).then(res => res.json()),
+      fetchTrailerKey(movieId)
+    ]);
+    setSelectedMovie({ ...detailsRes, trailerKey });
+  } catch (err) {
+    return null;
+  }
+};
+
 
   // Filter movies based on search term
   const filteredMovies = view === 'search'
@@ -134,7 +158,7 @@ const App = () => {
       <MovieList movies={sortedFilteredMovies} onMovieClick={handleMovieClick} />
 
       {selectedMovie && (
-        <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)} />
+        <MovieModal movie={selectedMovie} trailerKey={selectedMovie.trailerKey} onClose={() => setSelectedMovie(null)} />
       )}
 
       <LoadMoreButton
